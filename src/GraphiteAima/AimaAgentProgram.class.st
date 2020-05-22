@@ -1,5 +1,5 @@
 "
-it reifys the idea of agentFunction .
+silly abstract class 
 "
 Class {
 	#name : #AimaAgentProgram,
@@ -8,15 +8,13 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-AimaAgentProgram >> actionFor: perception for: anAgent in: anEnvironment [ 
-	self subclassResponsibility
+AimaAgentProgram >> defaultAgent [
+	^ self defaultAgentClass new
+		agentProgram: self;
+		yourself
 ]
 
 { #category : #'as yet unclassified' }
-AimaAgentProgram >> defaultAgent [
-	^ AimaAgent new
-		actuator: AimaSimpleActuator new;
-		sensor: AimaIdentitySensor new;
-		agentProgram: self;
-		yourself
+AimaAgentProgram >> defaultAgentClass [
+	^ self subclassResponsibility 
 ]

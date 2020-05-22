@@ -51,9 +51,9 @@ AimaVacuumTest >> testEnvironmentIsAllDirty [
 AimaVacuumTest >> testForCleanActionIsMove [
 	self
 		assert:
-			(((agent agentProgram actionFor: #clean for: agent in: environment)
+			(((agent agentProgram actionsFor: #clean for: agent in: environment)
 				isKindOf: AimaVacuumGoLeft)
-				or: [ (agent agentProgram actionFor: #clean for: agent in: environment)
+				or: [ (agent agentProgram actionsFor: #clean for: agent in: environment)
 						isKindOf: AimaVacuumGoRight ])
 ]
 
@@ -61,7 +61,7 @@ AimaVacuumTest >> testForCleanActionIsMove [
 AimaVacuumTest >> testForDirtyActionIsSuck [
 	self
 		assert:
-			((agent agentProgram actionFor: #dirty for: agent in: environment)
+			((agent agentProgram actionsFor: #dirty for: agent in: environment)
 				isKindOf: AimaVacuumSuck)
 ]
 

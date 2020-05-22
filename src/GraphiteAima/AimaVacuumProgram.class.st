@@ -3,12 +3,12 @@ Vavuum program .
 "
 Class {
 	#name : #AimaVacuumProgram,
-	#superclass : #AimaAgentProgram,
+	#superclass : #AimaReflexAgentProgram,
 	#category : #'GraphiteAima-VacuumWorld'
 }
 
 { #category : #'as yet unclassified' }
-AimaVacuumProgram >> actionFor: perception for: anAgent in: anEnvironment [
+AimaVacuumProgram >> actionsFor: perception for: anAgent in: anEnvironment [
 	^ self
 		ifDirty: perception
 		then: [ self suck ]
