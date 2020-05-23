@@ -22,7 +22,7 @@ AimaBreathFirstPathFindProgram >> actionsFor: aCity for: anAgent in: aRomaniaEnv
 
 { #category : #'as yet unclassified' }
 AimaBreathFirstPathFindProgram >> childNode: problem parent: parent action: action [
-	^ AimaPathNode new
+	^ AimaPathCostNode new
 		state: (problem apply: action to: parent state);
 		parent: parent;
 		action: action;
@@ -32,7 +32,7 @@ AimaBreathFirstPathFindProgram >> childNode: problem parent: parent action: acti
 
 { #category : #'as yet unclassified' }
 AimaBreathFirstPathFindProgram >> initialNode: node [
-	^ AimaPathNode new
+	^ AimaPathCostNode new
 		state: node;
 		parent: nil;
 		action: AimaActionEmpty new;
@@ -41,25 +41,46 @@ AimaBreathFirstPathFindProgram >> initialNode: node [
 ]
 
 { #category : #'as yet unclassified' }
+AimaBreathFirstPathFindProgram >> isSolved: aProblem [
+	^ frontier isNotEmpty and: [ aProblem isSolved not ]
+]
+
+{ #category : #'as yet unclassified' }
+AimaBreathFirstPathFindProgram >> pickNextNode [
+	| node |
+	node := frontier removeFirst.
+	explored add: node state.
+	^ node
+]
+
+{ #category : #'as yet unclassified' }
+AimaBreathFirstPathFindProgram >> prepareForSolving [
+	frontier := OrderedCollection new.
+	explored := Set new
+]
+
+{ #category : #accessing }
+AimaBreathFirstPathFindProgram >> registerNewFrontier: child [
+	((frontier includes: child) or: [ explored includes: child state ])
+		ifFalse: [ frontier add: child ]
+]
+
+{ #category : #'as yet unclassified' }
 AimaBreathFirstPathFindProgram >> solve: aProblem [
 	| node |
+	self prepareForSolving. 
 	node := self initialNode: aProblem initialState.
 	(aProblem isSolution: node state)
 		ifTrue: [ aProblem registerSolution: node ].
-	frontier := OrderedCollection new.
-	explored := Set new.
-	frontier add: node.
-	[ frontier isNotEmpty and: [ aProblem isSolved not ] ]
-		whileTrue: [ node := frontier removeFirst.
-			explored add: node state.
-			(aProblem actionsFor: node state)
-				do: [ :action | 
-					| child |
-					child := self childNode: aProblem parent: node action: action.
-					(aProblem isSolution: child state)
-						ifTrue: [ aProblem registerSolution: child ].
-					((frontier includes: child)
-						or: [ explored includes: child state ]) not
-						ifTrue: [ frontier add: child ] ] ].
+	self registerNewFrontier: node.
+	[ self isSolved: aProblem ] whileTrue: [
+			 node := self pickNextNode.
+			(aProblem actionsFor: node state) do: [ :action | 
+				| child |
+				child := self childNode: aProblem parent: node action: action.
+				(aProblem isSolution: child state) ifTrue: [ aProblem registerSolution: child ].
+				self registerNewFrontier: child
+			]
+		].
 	^ aProblem solution
 ]

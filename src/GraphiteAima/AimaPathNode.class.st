@@ -8,7 +8,6 @@ Class {
 	#classTraits : 'TEquality classTrait',
 	#instVars : [
 		'parent',
-		'cost',
 		'state',
 		'action'
 	],
@@ -26,16 +25,6 @@ AimaPathNode >> action: anObject [
 ]
 
 { #category : #accessing }
-AimaPathNode >> cost [
-	^ cost
-]
-
-{ #category : #accessing }
-AimaPathNode >> cost: anObject [
-	cost := anObject
-]
-
-{ #category : #accessing }
 AimaPathNode >> parent [
 	^ parent
 ]
@@ -47,7 +36,6 @@ AimaPathNode >> parent: anObject [
 
 { #category : #accessing }
 AimaPathNode >> printOn: aStream [
-	aStream nextPutAll:'$' ; nextPutAll: cost asString ; nextPutAll: ' '.
 	parent ifNotNil: [ parent printOn: aStream. aStream nextPutAll:'=>' ].
 	aStream nextPutAll: state asString
 ]

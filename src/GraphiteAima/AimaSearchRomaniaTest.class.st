@@ -1,6 +1,6 @@
 Class {
 	#name : #AimaSearchRomaniaTest,
-	#superclass : #TestCase,
+	#superclass : #GTEAbstractGraphTest,
 	#instVars : [
 		'agent',
 		'problem'
@@ -16,13 +16,14 @@ AimaSearchRomaniaTest >> runCaseManaged [
 { #category : #running }
 AimaSearchRomaniaTest >> setUp [
 	super setUp.
+	graph useWeightedArcResolver.
 	agent := AimaBreathFirstPathFindProgram new defaultAgent.
 	problem := AimaSearchPathProblem new
 		from: #Sibiu;
 		to: #Bucharest;
 		environment:
 			(AimaRomania new
-				initializeWith: GTEAdjacencyListGraph new;
+				initializeWith: graph;
 				yourself)
 ]
 
