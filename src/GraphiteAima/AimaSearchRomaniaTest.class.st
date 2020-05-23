@@ -2,7 +2,6 @@ Class {
 	#name : #AimaSearchRomaniaTest,
 	#superclass : #GTEAbstractGraphTest,
 	#instVars : [
-		'agent',
 		'problem'
 	],
 	#category : #'GraphiteAima-Romania'
@@ -17,7 +16,6 @@ AimaSearchRomaniaTest >> runCaseManaged [
 AimaSearchRomaniaTest >> setUp [
 	super setUp.
 	graph useWeightedArcResolver.
-	agent := AimaBreathFirstPathFindProgram new defaultAgent.
 	problem := AimaSearchPathProblem new
 		from: #Sibiu;
 		to: #Bucharest;
@@ -28,26 +26,61 @@ AimaSearchRomaniaTest >> setUp [
 ]
 
 { #category : #running }
-AimaSearchRomaniaTest >> testAllTheSolutionsStartAndFinishAsExpected [
+AimaSearchRomaniaTest >> testUniforCostHasOnlySolutionsWithTheSameCostWithinTheThreshold [
 	| solutions |
-	problem solution: (AimaSolution upTo: 3).
-	solutions := agent execute: problem.
-	self assert: (solutions allSatisfy: [ : s| s root state = #Sibiu and: [ s state = #Bucharest ] ]).
-	self assert: solutions size = 3
+	problem solution: (AimaSolution upTo: 1).
+	solutions := self uniformCostAgent execute: problem.
+	self assert: (solutions values allSatisfy: [ : s| s root state = #Sibiu and: [ s state = #Bucharest ] ]).
+	self assert: solutions size equals: 1 
 ]
 
 { #category : #running }
-AimaSearchRomaniaTest >> testThereAreSevenPathsMaximumPaths [
+AimaSearchRomaniaTest >> testUniformCostThereAreThreePathsMaximumPaths [
 	| solutions |
 	problem solution: AimaSolution all.
-	solutions := agent execute: problem.
-	self assert: solutions size = 7
+	solutions := self uniformCostAgent  execute: problem.
+	self assert: solutions size equals: 2
 ]
 
 { #category : #running }
-AimaSearchRomaniaTest >> testThereIsOnlyOnePathForOneSolutionStrategy [
+AimaSearchRomaniaTest >> testUniformCostThereIsOnlyOnePathForOneSolutionStrategy [
 	| solutions |
 	problem solution: AimaSolution single.
-	solutions := agent execute: problem.
-	self assert: solutions size = 1
+	solutions := self uniformCostAgent  execute: problem.
+	self assert: solutions size equals: 1
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> testUninformedAllTheSolutionsStartAndFinishAsExpected [
+	| solutions |
+	problem solution: (AimaSolution upTo: 2).
+	solutions := self uninformedAgent execute: problem.
+	self assert: (solutions values allSatisfy: [ : s| s root state = #Sibiu and: [ s state = #Bucharest ] ]).
+	self assert: solutions size equals: 2
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> testUninformedThereAreThreePathsMaximumPaths [
+	| solutions |
+	problem solution: AimaSolution all.
+	solutions := self uninformedAgent execute: problem.
+	self assert: solutions size equals: 3
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> testUninformedThereIsOnlyOnePathForOneSolutionStrategy [
+	| solutions |
+	problem solution: AimaSolution single.
+	solutions := self uninformedAgent execute: problem.
+	self assert: solutions size equals: 1
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> uniformCostAgent [
+	^ AimaUniformCostBreathFirstPathFindProgram new defaultAgent
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> uninformedAgent [
+	^ AimaUninformedBreathFirstPathFindProgram new defaultAgent
 ]

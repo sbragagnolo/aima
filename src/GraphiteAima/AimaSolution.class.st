@@ -29,13 +29,6 @@ AimaSolution class >> upTo: anAmount [
 ]
 
 { #category : #'as yet unclassified' }
-AimaSolution >> allSatisfy: aBlock [
-	^ self isSolved
-		ifTrue: [ aBlock value: solution ]
-		ifFalse: [ true ]
-]
-
-{ #category : #'as yet unclassified' }
 AimaSolution >> isSolved [
 	^ solution isNotNil
 ]
@@ -54,5 +47,10 @@ AimaSolution >> registerPartialSolution: aPartialSolution [
 
 { #category : #'as yet unclassified' }
 AimaSolution >> size [
- 	^ solution ifNil: [ 0 ] ifNotNil: [ 1 ]
+ 	^ self values size
+]
+
+{ #category : #'as yet unclassified' }
+AimaSolution >> values [
+	^ { solution }
 ]

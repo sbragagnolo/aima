@@ -13,6 +13,11 @@ Class {
 }
 
 { #category : #accessing }
+AimaPathCostNode >> < anOtherNode [
+	^ self cost < anOtherNode cost
+]
+
+{ #category : #accessing }
 AimaPathCostNode >> cost [
 	^ cost
 ]

@@ -8,11 +8,6 @@ Class {
 }
 
 { #category : #initialization }
-AimaSolutionAll >> allSatisfy: aBlock [
-	^ solution allSatisfy: aBlock
-]
-
-{ #category : #initialization }
 AimaSolutionAll >> initialize [
 	super initialize.
 	solution := OrderedCollection new
@@ -32,4 +27,9 @@ AimaSolutionAll >> registerPartialSolution: aPartialSolution [
 { #category : #initialization }
 AimaSolutionAll >> size [
  	^ solution size
+]
+
+{ #category : #initialization }
+AimaSolutionAll >> values [
+	^ solution sort: [ :a : b | a < b ]
 ]

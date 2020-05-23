@@ -15,6 +15,11 @@ Class {
 }
 
 { #category : #accessing }
+AimaPathNode >> < anOtherNode [
+	^ self length < anOtherNode length
+]
+
+{ #category : #accessing }
 AimaPathNode >> action [
 	^ action
 ]
@@ -22,6 +27,11 @@ AimaPathNode >> action [
 { #category : #accessing }
 AimaPathNode >> action: anObject [
 	action := anObject
+]
+
+{ #category : #accessing }
+AimaPathNode >> length [
+	^ parent ifNil: [ 1 ] ifNotNil: [ 1 + parent length ]
 ]
 
 { #category : #accessing }

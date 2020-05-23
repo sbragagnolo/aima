@@ -21,3 +21,10 @@ AimaGraphStepInto >> destination [
 AimaGraphStepInto >> destination: aCity [ 
 	destination := aCity
 ]
+
+{ #category : #'as yet unclassified' }
+AimaGraphStepInto >> printOn: aStream [
+	aStream
+		nextPutAll: 'Go: ';
+		nextPutAll: destination asString
+]
