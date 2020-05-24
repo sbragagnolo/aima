@@ -77,6 +77,11 @@ AimaSearchPathProblem >> registerSolution: aProblemNode [
 ]
 
 { #category : #accessing }
+AimaSearchPathProblem >> size [
+	^ environment size
+]
+
+{ #category : #accessing }
 AimaSearchPathProblem >> solution [
 	^ solution 
 ]

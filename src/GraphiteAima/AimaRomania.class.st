@@ -115,3 +115,8 @@ AimaRomania >> pathExistFrom: aCity to: anOtherCity [
 	^ (graph neighbours: (graph referenceTo: aCity))
 		includes: (graph referenceTo: anOtherCity)
 ]
+
+{ #category : #initialization }
+AimaRomania >> size [
+	^ graph size
+]

@@ -8,6 +8,11 @@ Class {
 }
 
 { #category : #running }
+AimaSearchRomaniaTest >> deepFirst [
+	^ AimaDepthFirstPathFindProgram new defaultAgent
+]
+
+{ #category : #running }
 AimaSearchRomaniaTest >> runCaseManaged [
 	^ self runCase
 ]
@@ -23,6 +28,31 @@ AimaSearchRomaniaTest >> setUp [
 			(AimaRomania new
 				initializeWith: graph;
 				yourself)
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> testDeepFirstThereAreThreePathsMaximumPaths [
+	| solutions |
+	problem solution: AimaSolution all.
+	solutions := self deepFirst execute: problem.
+	self assert: solutions size equals: 6
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> testDeepFirstThereIsOnlyOnePathForOneSolutionStrategy [
+	| solutions |
+	problem solution: AimaSolution single.
+	solutions := self deepFirst execute: problem.
+	self assert: solutions size equals: 1
+]
+
+{ #category : #running }
+AimaSearchRomaniaTest >> testDeepfirstAllTheSolutionsStartAndFinishAsExpected [
+	| solutions |
+	problem solution: (AimaSolution upTo: 3).
+	solutions := self deepFirst execute: problem.
+	self assert: (solutions values allSatisfy: [ : s| s root state = #Sibiu and: [ s state = #Bucharest ] ]).
+	self assert: solutions size equals: 3
 ]
 
 { #category : #running }

@@ -3,7 +3,7 @@ I am a breath first solution
 "
 Class {
 	#name : #AimaAbstractBreathFirstPathFindProgram,
-	#superclass : #AimaGoalAgentProgram,
+	#superclass : #AimaAbstractPathFindProgram,
 	#instVars : [
 		'frontier',
 		'explored'
@@ -12,35 +12,8 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-AimaAbstractBreathFirstPathFindProgram >> actionsFor: aCity for: anAgent in: aRomaniaEnvironment [
-	^ (aRomaniaEnvironment allDestinationsFrom: aCity)
-		collect: [ :d | 
-			AimaGraphStepInto new
-				destination: d;
-				yourself ]
-]
-
-{ #category : #'as yet unclassified' }
-AimaAbstractBreathFirstPathFindProgram >> childNode: problem parent: parent action: action [
-	^ self subclassResponsibility 
-]
-
-{ #category : #'as yet unclassified' }
-AimaAbstractBreathFirstPathFindProgram >> initialNode: node [
-	^ self subclassResponsibility
-]
-
-{ #category : #'as yet unclassified' }
-AimaAbstractBreathFirstPathFindProgram >> isSolution: node for: aProblem [
-	^ (aProblem isSolution: node state)
-		ifTrue: [
-			true ]
-		ifFalse: [ false ]
-]
-
-{ #category : #'as yet unclassified' }
 AimaAbstractBreathFirstPathFindProgram >> isSolved: aProblem [
-	^ frontier isNotEmpty and: [ aProblem isSolved not ]
+	^ frontier isEmpty or: [ super isSolved: aProblem ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -63,11 +36,6 @@ AimaAbstractBreathFirstPathFindProgram >> registerNewFrontier: child [
 ]
 
 { #category : #'as yet unclassified' }
-AimaAbstractBreathFirstPathFindProgram >> registerSolution: node for: aProblem [
-	aProblem registerSolution: node
-]
-
-{ #category : #'as yet unclassified' }
 AimaAbstractBreathFirstPathFindProgram >> solve: aProblem [
 	| node |
 	self prepareForSolving.
@@ -76,7 +44,7 @@ AimaAbstractBreathFirstPathFindProgram >> solve: aProblem [
 		ifTrue: [ self registerSolution: node for: aProblem ].
 	self registerNewFrontier: node.
 	[ self isSolved: aProblem ]
-		whileTrue: [ node := self pickNextNode.
+		whileFalse: [ node := self pickNextNode.
 			(aProblem actionsFor: node state)
 				do: [ :action | 
 					| child |

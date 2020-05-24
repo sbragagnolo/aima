@@ -47,7 +47,7 @@ AimaSolution >> registerPartialSolution: aPartialSolution [
 
 { #category : #'as yet unclassified' }
 AimaSolution >> size [
- 	^ self values size
+ 	^ solution ifNil: [ 0 ] ifNotNil: [ 1 ]
 ]
 
 { #category : #'as yet unclassified' }

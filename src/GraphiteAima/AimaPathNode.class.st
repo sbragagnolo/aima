@@ -64,3 +64,8 @@ AimaPathNode >> state [
 AimaPathNode >> state: anObject [
 	state := anObject
 ]
+
+{ #category : #accessing }
+AimaPathNode >> states [
+	^ parent ifNil: [ {state} ] ifNotNil: [ parent states , {state} ]
+]
