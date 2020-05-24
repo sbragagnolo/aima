@@ -82,8 +82,6 @@ AimaAStarPathFindProgram >> solve: aProblem for: node limit: limit [
 		^ { #Success . 0 }.
 	].
 	successors := self calculateSuccessors: node for: aProblem.
-
-
 	
 	[ true ] whileTrue: [
 		" 
@@ -116,11 +114,6 @@ AimaAStarPathFindProgram >> solve: aProblem for: node limit: limit [
 			 ] ifFalse: [ 
 				best f: results second.
 			 ]
-			" 
-				This path may fail because of being a dead end, or because the price is to high
-			"
-			
-	"		successors size = 1 ifTrue: [ ^ { #Failure . best f }  ]."
 		].
 	]
 	
