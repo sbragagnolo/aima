@@ -60,6 +60,30 @@ AimaRomania class >> edgesOfRomania [
 	#(Eforie Hirsova 86)}
 ]
 
+{ #category : #'as yet unclassified' }
+AimaRomania class >> heuristicToBucharest [
+	^ {(#Arad -> 366).
+	(#Bucharest -> 0).
+	(#Craiova -> 160).
+	(#Drobeta -> 242).
+	(#Eforie -> 161).
+	(#Fagaras -> 176).
+	(#Giurgiu -> 77).
+	(#Hirsova -> 151).
+	(#Iasi -> 226).
+	(#Lugoj -> 244).
+	(#Mehadia -> 241).
+	(#Neamt -> 234).
+	(#Oradea -> 380).
+	(#Pitesti -> 100).
+	(#RimnicuVilcea -> 193).
+	(#Sibiu -> 253).
+	(#Timisoara -> 329).
+	(#Urziceni -> 80).
+	(#Vaslui -> 199).
+	(#Zerind -> 374)} asDictionary
+]
+
 { #category : #initialization }
 AimaRomania >> addArcWeighted: aWeight node: aNode node: otherNode [
 	graph
@@ -102,6 +126,12 @@ AimaRomania >> costForGoingFrom: aCity to: anOtherCity [
 	^arcs
 		ifEmpty: [ self error: 'Not way to go' ]
 		ifNotEmpty: [ arcs anyOne weight ]
+]
+
+{ #category : #initialization }
+AimaRomania >> heuristicFunctionFor: aNode forDestination: aDestinationNode [
+	self assert: aDestinationNode = #Bucharest.
+	^ self class heuristicToBucharest at: aNode
 ]
 
 { #category : #initialization }

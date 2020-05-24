@@ -45,7 +45,7 @@ AimaAbstractBreathFirstPathFindProgram >> solve: aProblem [
 	self registerNewFrontier: node.
 	[ self isSolved: aProblem ]
 		whileFalse: [ node := self pickNextNode.
-			(aProblem actionsFor: node state)
+			(self actionsFor: node for: aProblem )
 				do: [ :action | 
 					| child |
 					child := self childNode: aProblem parent: node action: action.

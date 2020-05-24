@@ -8,12 +8,8 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
-AimaAbstractPathFindProgram >> actionsFor: aState for: anAgent in: anEnvironment [
-	^ (anEnvironment allDestinationsFrom: aState)
-		collect: [ :d | 
-			AimaGraphStepInto new
-				destination: d;
-				yourself ]
+AimaAbstractPathFindProgram >> actionsFor: node for: problem [
+	^ problem actionsFor: node state
 ]
 
 { #category : #'as yet unclassified' }

@@ -6,18 +6,16 @@ I am a recursive implementation.
 I have a small modification from the original algorithm, i do not allow the actions to take me to the previous node, to allow short undesirable recursions.
 I am mean to be useful for graphs of what ever kind. non directed too. 
 
-By other hand, the treatment of cylic nature of the graph, is left to the problem, since each problem may have to resolve it differently .
+I do not repeat nodes for finding solutions. Pay attention may be important for you .
 "
 Class {
 	#name : #AimaDepthFirstPathFindProgram,
 	#superclass : #AimaAbstractPathFindProgram,
+	#instVars : [
+		'defaultLimit'
+	],
 	#category : #'GraphiteAima-SearchOnGraph'
 }
-
-{ #category : #'as yet unclassified' }
-AimaDepthFirstPathFindProgram >> actionsFor: node for: problem [
-	^ problem actionsFor: node state
-]
 
 { #category : #'as yet unclassified' }
 AimaDepthFirstPathFindProgram >> childNode: problem parent: parent action: action [
@@ -26,6 +24,16 @@ AimaDepthFirstPathFindProgram >> childNode: problem parent: parent action: actio
 		parent: parent;
 		action: action;
 		yourself
+]
+
+{ #category : #'as yet unclassified' }
+AimaDepthFirstPathFindProgram >> defaultLimit [ 
+	^ defaultLimit ifNil: [ 10 ]
+]
+
+{ #category : #'as yet unclassified' }
+AimaDepthFirstPathFindProgram >> defaultLimit: aLimit [
+	defaultLimit := aLimit 
 ]
 
 { #category : #'as yet unclassified' }
@@ -44,7 +52,7 @@ AimaDepthFirstPathFindProgram >> isSolved: aSolution for: aProblem [
 
 { #category : #'as yet unclassified' }
 AimaDepthFirstPathFindProgram >> solve: problem [
-	^ self solve: problem limit: (problem size min: 10)
+	^ self solve: problem limit: self defaultLimit.
 ]
 
 { #category : #'as yet unclassified' }

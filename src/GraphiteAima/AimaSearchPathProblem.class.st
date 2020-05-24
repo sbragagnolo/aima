@@ -56,6 +56,11 @@ AimaSearchPathProblem >> from: anObject [
 	from := anObject
 ]
 
+{ #category : #'as yet unclassified' }
+AimaSearchPathProblem >> heuristicCostFunction: anEnvironmentNode [
+	^ environment heuristicFunctionFor: anEnvironmentNode forDestination: to
+]
+
 { #category : #accessing }
 AimaSearchPathProblem >> initialState [
 	^ from
