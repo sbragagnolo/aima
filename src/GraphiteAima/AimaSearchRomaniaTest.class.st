@@ -49,7 +49,7 @@ AimaSearchRomaniaTest >> testAStarFirstThereAreThreePathsMaximumPaths [
 	| solutions |
 	problem solution: AimaSolution all.
 	solutions := self astar execute: problem.
-	self assert: solutions size equals: 42
+	self assert: solutions size equals: 7
 ]
 
 { #category : #running }

@@ -52,5 +52,5 @@ AimaSolution >> size [
 
 { #category : #'as yet unclassified' }
 AimaSolution >> values [
-	^ { solution }
+	^ solution ifNil: [ {} ] ifNotNil: [ {solution} ]
 ]
