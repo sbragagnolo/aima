@@ -4,12 +4,10 @@ I am a problem. I have an reason, a goal, enough information to know where i do 
 "
 Class {
 	#name : #AimaSearchPathProblem,
-	#superclass : #Object,
+	#superclass : #AimaProblem,
 	#instVars : [
 		'from',
-		'to',
-		'environment',
-		'solution'
+		'to'
 	],
 	#category : #'GraphiteAima-SearchOnGraph'
 }
@@ -37,16 +35,6 @@ AimaSearchPathProblem >> apply: anAimaGraphStepInto to: aNode [
 ]
 
 { #category : #accessing }
-AimaSearchPathProblem >> environment [
-	^ environment
-]
-
-{ #category : #accessing }
-AimaSearchPathProblem >> environment: anObject [
-	environment := anObject
-]
-
-{ #category : #accessing }
 AimaSearchPathProblem >> from [
 	^ from
 ]
@@ -58,7 +46,7 @@ AimaSearchPathProblem >> from: anObject [
 
 { #category : #'as yet unclassified' }
 AimaSearchPathProblem >> heuristicCostFunction: anEnvironmentNode [
-	^ environment heuristicFunctionFor: anEnvironmentNode forDestination: to
+	^ self environment heuristicFunctionFor: anEnvironmentNode forDestination: to
 ]
 
 { #category : #accessing }
@@ -71,29 +59,9 @@ AimaSearchPathProblem >> isSolution: aNode [
 	^ to = aNode
 ]
 
-{ #category : #'as yet unclassified' }
-AimaSearchPathProblem >> isSolved [
-	^ solution isSolved
-]
-
 { #category : #accessing }
 AimaSearchPathProblem >> registerSolution: aProblemNode [
 	self solution registerPartialSolution: aProblemNode
-]
-
-{ #category : #accessing }
-AimaSearchPathProblem >> size [
-	^ environment size
-]
-
-{ #category : #accessing }
-AimaSearchPathProblem >> solution [
-	^ solution 
-]
-
-{ #category : #accessing }
-AimaSearchPathProblem >> solution: aSolutionHolder [
-	solution := aSolutionHolder
 ]
 
 { #category : #accessing }
