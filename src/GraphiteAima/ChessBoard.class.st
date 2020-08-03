@@ -28,6 +28,11 @@ ChessBoard >> initialize [
 ]
 
 { #category : #'as yet unclassified' }
+ChessBoard >> isSolved [
+	^ self pairsOfCheckedQueens = 0
+]
+
+{ #category : #'as yet unclassified' }
 ChessBoard >> moveDownQueenAt: anInteger [ 
 	" Should change "
 
@@ -59,9 +64,14 @@ ChessBoard >> moveUpQueenAt: anInteger [
 
 { #category : #'as yet unclassified' }
 ChessBoard >> pairsOfCheckedQueens [
-	| pairs |
-	
-	(1 to: 8) count: [ : i |  (board atRow: i) sum ]
+	| lines |
+	lines := ((1 to: 8) collect: [ :i | (board atRow: i) sum - 1 max: 0 ])
+		sum.
+	^ lines
+		+
+			(board diagonals values
+				collect: [ :d | d ifEmpty: [ 0 ] ifNotEmpty: [ d sum - 1 max: 0 ] ])
+				sum
 ]
 
 { #category : #initialization }
@@ -77,4 +87,9 @@ ChessBoard >> randomizeQueens [
 		j := 7 atRandom + 1.
 		(board at: j at: i) = 0
 			ifTrue: [ board at: j at: i put: 1 ] ]
+]
+
+{ #category : #'as yet unclassified' }
+ChessBoard >> state [
+	^ self
 ]

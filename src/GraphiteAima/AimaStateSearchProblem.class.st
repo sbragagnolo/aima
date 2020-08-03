@@ -26,3 +26,8 @@ AimaStateSearchProblem >> heuristicFunctionFor: aChessBoard [
 AimaStateSearchProblem >> initialState [
 	^ environment
 ]
+
+{ #category : #'as yet unclassified' }
+AimaStateSearchProblem >> isSolution: aChessBoard [ 
+	^ aChessBoard isSolved 
+]

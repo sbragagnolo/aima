@@ -86,6 +86,8 @@ AimaRomania class >> heuristicToBucharest [
 
 { #category : #initialization }
 AimaRomania >> addArcWeighted: aWeight node: aNode node: otherNode [
+	graph addNode: aNode.
+	graph addNode: otherNode.
 	graph
 		addArc:
 			(GTEWeightedArc new
@@ -106,7 +108,7 @@ AimaRomania >> addEdge: anEdge [
 
 { #category : #initialization }
 AimaRomania >> allDestinationsFrom: aCity [
-	^ (graph neighbours: (graph referenceTo: aCity))
+	^ (graph neighbours: (graph referenceTo: aCity state))
 		collect: [ :r | r readValueFrom: graph ]
 ]
 

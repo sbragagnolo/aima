@@ -21,10 +21,10 @@ AimaHillClimbingPathFindProgram >> solve: problem [
 		(self actionsFor: current for: problem ) collect:[ : action |
 			self neighbourNodeFor: current  problem: problem action: action.
 		].
-		comparison := (neighbours, { current }) sort:[ :a :b |
+		comparison := (neighbours, { current }) asSet asOrderedCollection  sort:[ :a :b |
 			(problem heuristicFunctionFor: a) < (problem heuristicFunctionFor: b) 	
 		].
-		comparison first = current ifTrue: [ 	
+		(comparison first = current  or: [(problem heuristicFunctionFor: comparison first) = (problem heuristicFunctionFor: current) ])	  ifTrue: [ 	
 				(self isSolution: current for: problem) ifTrue: [ 
 					self registerSolution: current for: problem .
 					(self isSolved: problem ) ifTrue:[ ^ problem solution ].
