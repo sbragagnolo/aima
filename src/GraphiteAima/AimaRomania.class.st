@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'graph'
 	],
-	#category : #'GraphiteAima-Romania'
+	#category : #'GraphiteAima-WorldRomania'
 }
 
 { #category : #'as yet unclassified' }

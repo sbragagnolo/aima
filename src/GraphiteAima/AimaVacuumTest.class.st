@@ -5,7 +5,7 @@ Class {
 		'agent',
 		'environment'
 	],
-	#category : #'GraphiteAima-VacuumWorld-Test'
+	#category : #'GraphiteAima-WorldVacuum-Test'
 }
 
 { #category : #running }

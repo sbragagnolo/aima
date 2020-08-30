@@ -4,7 +4,7 @@ Action: Go Left
 Class {
 	#name : #AimaVacuumGoLeft,
 	#superclass : #AimaAction,
-	#category : #'GraphiteAima-VacuumWorld-Actions'
+	#category : #'GraphiteAima-WorldVacuum-Actions'
 }
 
 { #category : #'as yet unclassified' }

@@ -4,7 +4,7 @@ Vavuum program .
 Class {
 	#name : #AimaVacuumProgram,
 	#superclass : #AimaReflexAgentProgram,
-	#category : #'GraphiteAima-VacuumWorld'
+	#category : #'GraphiteAima-WorldVacuum'
 }
 
 { #category : #'as yet unclassified' }

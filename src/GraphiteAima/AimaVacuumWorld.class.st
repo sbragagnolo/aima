@@ -8,7 +8,7 @@ Class {
 		'left',
 		'right'
 	],
-	#category : #'GraphiteAima-VacuumWorld-Environment'
+	#category : #'GraphiteAima-WorldVacuum-Environment'
 }
 
 { #category : #'as yet unclassified' }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'problem'
 	],
-	#category : #'GraphiteAima-Romania'
+	#category : #'GraphiteAima-WorldRomania'
 }
 
 { #category : #running }

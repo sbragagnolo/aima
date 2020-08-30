@@ -5,7 +5,7 @@ Class {
 		'column',
 		'direction'
 	],
-	#category : #'GraphiteAima-Chess'
+	#category : #'GraphiteAima-WorldChess'
 }
 
 { #category : #'as yet unclassified' }

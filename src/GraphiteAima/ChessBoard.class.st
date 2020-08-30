@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'board'
 	],
-	#category : #'GraphiteAima-Chess'
+	#category : #'GraphiteAima-WorldChess'
 }
 
 { #category : #'as yet unclassified' }
