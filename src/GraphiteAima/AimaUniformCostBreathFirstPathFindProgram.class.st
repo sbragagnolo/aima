@@ -4,7 +4,7 @@ I am a path solution that minds the cost. I am aware of the weights in the arrow
 Class {
 	#name : #AimaUniformCostBreathFirstPathFindProgram,
 	#superclass : #AimaAbstractBreathFirstPathFindProgram,
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Search'
 }
 
 { #category : #'as yet unclassified' }

@@ -11,7 +11,7 @@ Class {
 		'state',
 		'action'
 	],
-	#category : #'GraphiteAima-Path-Solution'
+	#category : #'GraphiteAima-Solutions'
 }
 
 { #category : #accessing }

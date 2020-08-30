@@ -4,7 +4,7 @@ Ia am a really generic path finder program
 Class {
 	#name : #AimaAbstractPathFindProgram,
 	#superclass : #AimaGoalAgentProgram,
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Search'
 }
 
 { #category : #'as yet unclassified' }

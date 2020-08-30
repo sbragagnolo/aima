@@ -4,7 +4,7 @@ I am the kind of problem that looks for specific state.
 Class {
 	#name : #AimaStateSearchProblem,
 	#superclass : #AimaProblem,
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Problems'
 }
 
 { #category : #'as yet unclassified' }

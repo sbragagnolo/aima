@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'amountOfConcurrentStates'
 	],
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Search'
 }
 
 { #category : #'as yet unclassified' }

@@ -8,7 +8,7 @@ Class {
 		'environment',
 		'solution'
 	],
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Problems'
 }
 
 { #category : #accessing }

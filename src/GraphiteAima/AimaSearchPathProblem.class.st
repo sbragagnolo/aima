@@ -9,7 +9,7 @@ Class {
 		'from',
 		'to'
 	],
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Problems'
 }
 
 { #category : #accessing }

@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'amount'
 	],
-	#category : #'GraphiteAima-Path-Solution'
+	#category : #'GraphiteAima-Solutions'
 }
 
 { #category : #accessing }

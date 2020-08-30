@@ -14,7 +14,7 @@ Class {
 	#instVars : [
 		'defaultLimit'
 	],
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Search'
 }
 
 { #category : #'as yet unclassified' }

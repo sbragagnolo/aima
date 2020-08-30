@@ -8,7 +8,7 @@ Class {
 		'agent',
 		'state'
 	],
-	#category : #'GraphiteAima-WorldVacuum-Environment'
+	#category : #'GraphiteAima-WorldVacuum'
 }
 
 { #category : #testing }

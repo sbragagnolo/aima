@@ -4,7 +4,7 @@ I do look for paths without having much insight.
 Class {
 	#name : #AimaUninformedBreathFirstPathFindProgram,
 	#superclass : #AimaAbstractBreathFirstPathFindProgram,
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Search'
 }
 
 { #category : #'as yet unclassified' }

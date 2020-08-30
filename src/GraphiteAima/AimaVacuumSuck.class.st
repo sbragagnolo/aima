@@ -4,7 +4,7 @@ Action: Suck!
 Class {
 	#name : #AimaVacuumSuck,
 	#superclass : #AimaAction,
-	#category : #'GraphiteAima-WorldVacuum-Actions'
+	#category : #'GraphiteAima-WorldVacuum'
 }
 
 { #category : #'as yet unclassified' }

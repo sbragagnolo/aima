@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'heuristicFunction'
 	],
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Problems'
 }
 
 { #category : #'as yet unclassified' }

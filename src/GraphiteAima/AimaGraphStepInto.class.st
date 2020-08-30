@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'destination'
 	],
-	#category : #'GraphiteAima-SearchOnGraph'
+	#category : #'GraphiteAima-Search'
 }
 
 { #category : #'as yet unclassified' }

@@ -8,7 +8,7 @@ Class {
 	#instVars : [
 		'solution'
 	],
-	#category : #'GraphiteAima-Path-Solution'
+	#category : #'GraphiteAima-Solutions'
 }
 
 { #category : #'as yet unclassified' }

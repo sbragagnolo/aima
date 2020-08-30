@@ -4,7 +4,7 @@ I wait for everything!
 Class {
 	#name : #AimaSolutionAll,
 	#superclass : #AimaSolution,
-	#category : #'GraphiteAima-Path-Solution'
+	#category : #'GraphiteAima-Solutions'
 }
 
 { #category : #initialization }

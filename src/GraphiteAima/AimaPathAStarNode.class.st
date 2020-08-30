@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'f'
 	],
-	#category : #'GraphiteAima-Path-Solution'
+	#category : #'GraphiteAima-Solutions'
 }
 
 { #category : #comparing }

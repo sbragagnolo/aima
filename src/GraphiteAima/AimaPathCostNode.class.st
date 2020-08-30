@@ -9,7 +9,7 @@ Class {
 	#instVars : [
 		'cost'
 	],
-	#category : #'GraphiteAima-Path-Solution'
+	#category : #'GraphiteAima-Solutions'
 }
 
 { #category : #accessing }
