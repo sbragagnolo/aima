@@ -29,9 +29,14 @@ AimaQueensTest >> setUp [
 ]
 
 { #category : #running }
+AimaQueensTest >> stimulatedHillClimbing [
+	^ AimaStimulatedHillClimbingPathFindProgram new defaultAgent 
+]
+
+{ #category : #running }
 AimaQueensTest >> testHillClimbingThereIsOnlyOneBoardForOneSolutionStrategy [
 	| solutions |
 	problem solution: AimaSolution single.
-	solutions := self hillClimbing execute: problem.
+	solutions := self stimulatedHillClimbing execute: problem.
 	self assert: solutions size equals: 1
 ]

@@ -60,11 +60,6 @@ AimaSearchPathProblem >> isSolution: aNode [
 ]
 
 { #category : #accessing }
-AimaSearchPathProblem >> registerSolution: aProblemNode [
-	self solution registerPartialSolution: aProblemNode
-]
-
-{ #category : #accessing }
 AimaSearchPathProblem >> to [
 	^ to
 ]

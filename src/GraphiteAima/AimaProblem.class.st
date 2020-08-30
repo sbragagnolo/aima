@@ -27,6 +27,12 @@ AimaProblem >> isSolved [
 ]
 
 { #category : #accessing }
+AimaProblem >> registerSolution: aProblemNode [
+
+	self solution registerPartialSolution: aProblemNode
+]
+
+{ #category : #accessing }
 AimaProblem >> size [
 	^ environment size
 ]
