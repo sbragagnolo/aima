@@ -16,7 +16,7 @@ AimaStimulatedHillClimbingPathFindProgram >> chooseNextStep: neighbours knowingC
 		^ super chooseNextStep: neighbours knowingCurrent: current for: problem.
 	].
 	probability := (probability + 0.02) min: 1.0. 
-	^ neighbours atRandom. 
+	^ neighbours shuffle first: amountOfConcurrentStates . 
 ]
 
 { #category : #'as yet unclassified' }

@@ -9,7 +9,10 @@ Class {
 
 { #category : #running }
 AimaQueensTest >> hillClimbing [
-	^ AimaHillClimbingPathFindProgram new defaultAgent 
+
+	^ AimaHillClimbingPathFindProgram new
+		  amountOfConcurrentStates: 5;
+		  defaultAgent
 ]
 
 { #category : #running }
@@ -30,7 +33,10 @@ AimaQueensTest >> setUp [
 
 { #category : #running }
 AimaQueensTest >> stimulatedHillClimbing [
-	^ AimaStimulatedHillClimbingPathFindProgram new defaultAgent 
+
+	^ AimaStimulatedHillClimbingPathFindProgram new
+		  amountOfConcurrentStates: 5;
+		  defaultAgent
 ]
 
 { #category : #running }
