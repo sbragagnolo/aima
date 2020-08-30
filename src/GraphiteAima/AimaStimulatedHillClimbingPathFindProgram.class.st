@@ -1,3 +1,6 @@
+"
+I am a hill climbing algorithm with some random stimulation for avoiding local maximumum deadends.
+"
 Class {
 	#name : #AimaStimulatedHillClimbingPathFindProgram,
 	#superclass : #AimaHillClimbingPathFindProgram,
