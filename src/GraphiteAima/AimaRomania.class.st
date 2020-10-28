@@ -3,15 +3,12 @@ I am a romania builder.
 "
 Class {
 	#name : #AimaRomania,
-	#superclass : #Object,
-	#instVars : [
-		'graph'
-	],
+	#superclass : #AimaCountry,
 	#category : #'GraphiteAima-WorldRomania'
 }
 
 { #category : #'as yet unclassified' }
-AimaRomania class >> edgesOfRomania [
+AimaRomania class >> edges [
 	^ {#(Arad Zerind 75).
 	#(Arad Timisoara 118).
 	#(Arad Sibiu 140).
@@ -85,38 +82,9 @@ AimaRomania class >> heuristicToBucharest [
 ]
 
 { #category : #initialization }
-AimaRomania >> addArcWeighted: aWeight node: aNode node: otherNode [
-	graph addNode: aNode.
-	graph addNode: otherNode.
-	graph
-		addArc:
-			(GTEWeightedArc new
-				nodes:
-					{( graph referenceTo: aNode).
-					( graph referenceTo: otherNode)};
-				weight: aWeight;
-				yourself)
-]
-
-{ #category : #initialization }
-AimaRomania >> addEdge: anEdge [
-	self
-		addArcWeighted: anEdge third
-		node: anEdge second
-		node: anEdge first
-]
-
-{ #category : #initialization }
 AimaRomania >> allDestinationsFrom: aCity [
 	^ (graph neighbours: (graph referenceTo: aCity state))
 		collect: [ :r | r readValueFrom: graph ]
-]
-
-{ #category : #initialization }
-AimaRomania >> buildInto: aGraph [
-	graph := aGraph.
-	self class edgesOfRomania do: [ :e | self addEdge: e ].
-	^ graph.
 ]
 
 { #category : #'as yet unclassified' }
@@ -134,12 +102,6 @@ AimaRomania >> costForGoingFrom: aCity to: anOtherCity [
 AimaRomania >> heuristicFunctionFor: aNode forDestination: aDestinationNode [
 	self assert: aDestinationNode = #Bucharest.
 	^ self class heuristicToBucharest at: aNode
-]
-
-{ #category : #initialization }
-AimaRomania >> initializeWith: aGraph [
-	graph := aGraph.
-	self class edgesOfRomania do: [ :e | self addEdge: e ]
 ]
 
 { #category : #'as yet unclassified' }
