@@ -35,8 +35,11 @@ AimaSolution >> isSolved [
 
 { #category : #'as yet unclassified' }
 AimaSolution >> printOn: aStream [
+
 	aStream nextPutAll: 'Solutions ('.
-	solution do: [ :n | n printOn: aStream ].
+	solution
+		ifNil: [ aStream nextPutAll: 'None' ]
+		ifNotNil: [ :v | v do: [ :n | n printOn: aStream ] ].
 	aStream nextPutAll: ') '
 ]
 
